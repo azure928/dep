@@ -30,4 +30,4 @@ spec:
     spec:
       containers:
       - name: con-front
-        image: azure6dev/spring:3
+        image: azure6dev/spring:10
