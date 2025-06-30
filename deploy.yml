@@ -33,8 +33,20 @@ spec:
         image: azure6dev/spring:10
         resources:
           requests:
-            cpu: "250m"
+            cpu: "200m"
             memory: "512Mi"
           limits:
-            cpu: "500m"
+            cpu: "400m"
             memory: "1Gi"
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5173
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5173
+          initialDelaySeconds: 5
+          periodSeconds: 5
